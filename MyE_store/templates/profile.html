@@ -1,0 +1,199 @@
+{% load static %}
+<html>
+    <head>
+    <!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="/static/img/fav.png">
+	<!-- Author Meta -->
+	<meta name="author" content="CodePixar">
+	<!-- Meta Description -->
+	<meta name="description" content="">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+    <title>Customer Profile page</title>
+	<!--
+		CSS
+		============================================= -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    
+	<link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+	<link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+	<link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+	<link rel="stylesheet" href="{% static 'css/nouislider.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/ion.rangeSlider.css' %}" />
+	<link rel="stylesheet" href="{% static 'css/ion.rangeSlider.skinFlat.css' %}" />
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+	
+
+    </head>
+    <body>
+
+        	<!-- Start Header Area -->
+	<header class="header_area sticky-header">
+		<div class="main_menu">
+			<nav class="navbar navbar-expand-lg navbar-light main_box">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<a class="navbar-brand logo_h" href="index.html"><img src="/static/img/logo.png" alt=""></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+						<ul class="nav navbar-nav menu_nav ml-auto">
+							<li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+							<li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+									aria-haspopup="true" aria-expanded="false">Shop</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link" href="{% url  'store:category' %}">Shop by Category</a></li>
+									<!-- <li class="nav-item"><a class="nav-link" href="single-product.html">Product
+											Details</a></li> -->
+									<!-- <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a>
+									</li> -->
+									<li class="nav-item"><a class="nav-link" href="{% url 'store:cart' %}">Shopping Cart</a></li>
+									<li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item active">
+                                {% include 'search_form.html' %}
+                            </li>
+							<!-- <li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 aria-expanded="false">Blog</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+									<li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
+								</ul>
+							</li>
+							<li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 aria-expanded="false">Pages</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+									<li class="nav-item"><a class="nav-link" href="tracking.html">Tracking</a></li>
+									<li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
+								</ul>
+							</li>
+							<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li> -->
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li class="nav-item"><a href="{% url 'store:cart' %}" class="cart"><span class="fa fa-shopping-cart">( {{cartItems}} )</span></a>
+							</li>
+							<li class="nav-item">
+								<a href="{% url 'store:profile' %}" class="cart"> <b>Hello, {{request.user.first_name}}</b> <span class="fa fa-fw fa-user"></span></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+		<!-- <div class="search_input" id="search_input_box">
+			<div class="container">
+				<form class="d-flex justify-content-between">
+					<input type="text" class="form-control" id="search_input" placeholder="Search Here">
+					<button type="submit" class="btn"></button>
+					<span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
+				</form>
+			</div>
+		</div> -->
+	</header>
+	<!-- End Header Area -->
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+        <div class="jumbotron">
+            <h3 class="display-5 text-center"> Profile Details </h3>
+            <hr style="width:100% ", size="3", color=black >
+            <div class="container">
+              
+                <form class="row g-3">
+                    <div class="col-lg-4">
+                      <label for="inputEmail4" class="form-label"> <h3>Name :</h3> </label>
+                      <h4>{{profile.user.first_name}} {{profile.user.last_name}}</h4>
+                    </div>
+                    <div class="col-lg-4">
+                      <label for="inputPassword4" class="form-label"> <h3> Email :</h3></label>
+                    <h4>{{profile.user.email}}</h4>
+                    </div>
+                    <div class="col-lg-4">
+                        <label for="inputAddress" class="form-label"> <h3>Mobile_no :</h3> </label>
+                        <h4>{{profile.mobile_no}}</h4>
+                    </div>
+                    {% for address in profile.address.all %}  
+                    <div class="col-lg-4">
+                      <label for="inputAddress" class="form-label"><h3>Address line1 :</h3> </label>
+                        
+                      <h4>{{address.address_line1}}</h4>
+                       
+                    </div>
+                    <div class="col-lg-4">
+                      <label for="inputAddress2" class="form-label"><h3>Address line2 :</h3> </label>
+                        <h4>{{address.address_line2}}</h4>
+                    </div>
+                    <div class="col-lg-4">
+                      <label for="inputCity" class="form-label"><h3>City :</h3> </label>
+                      <h4>{{address.city}}</h4>
+                    </div>
+                    <div class="col-lg-4">
+                      <label for="inputState" class="form-label"><h3>State :</h3> </label>
+                   <h4>{{address.state}}</h4>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                      <label for="inputZip" class="form-label"><h3>Zip :</h3> </label>
+                     <h4>{{address.zipcode}}</h4>
+                    </div>
+                    <div class="col-lg-4">
+                        <label for="inputCity" class="form-label"><h3> Country :</h3></label>
+                        <h4>{{address.country}}</h4>
+                      </div>
+                      {% endfor %}
+                    <div class="col-12">
+                        <a href="{% url 'store:update_profile' %}">
+                      <button type="button" class="btn btn-secondary">Edit Profile</button>
+                    </a>
+                    </div>
+                  </form>
+                
+            </div>    
+        </div>
+        
+    
+	<script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+		crossorigin="anonymous"></script>
+	<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+	<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+	<script src="{% static 'js/jquery.sticky.js' %}"></script>
+	<script src="{% static 'js/nouislider.min.js' %}"></script>
+	<script src="{% static 'js/countdown.js' %}"></script>
+	<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+    </body>
+
+</html>

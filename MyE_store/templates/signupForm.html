@@ -1,0 +1,132 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<html>
+    <head>
+        <title>Sign_Up Page</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+        <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+        <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+        <link rel="stylesheet" href="{% static 'css/nouislider.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/ion.rangeSlider.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/ion.rangeSlider.skinFlat.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    </head>
+    <body>
+        
+        <header class="header_area sticky-header">
+            <div class="main_menu">
+                <nav class="navbar navbar-expand-lg navbar-light main_box">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <a class="navbar-brand logo_h" href="index.html"><img src="/static/img/logo.png" alt=""></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                            <ul class="nav navbar-nav menu_nav ml-auto">
+                                <li class="nav-item active">
+                                    
+                                  
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <!-- <div class="search_input" id="search_input_box">
+                <div class="container">
+                    <form class="d-flex justify-content-between">
+                        <input type="text" class="form-control" id="search_input" placeholder="Search Here">
+                        <button type="submit" class="btn"></button>
+                        <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
+                    </form>
+                </div>
+            </div> -->
+        </header>
+
+                <section class="login_box_area section_gap">
+                    <div class="container">
+                        <div class="row">
+                            
+                            <div class="col-lg-12">
+                                <div class="login_form_inner">
+                                    <h3><b>Sign_Up Form</b> </h3>
+                            <hr style="width: 30%;  margin-left: 400px;">
+                            <br>
+                            <br>
+                                    <form method="POST" action="{% url 'authorization:signup_page' %}">
+                                        {% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-4">
+                                                {{signUp_form.username|as_crispy_field}}
+                                            </div>
+                                            <div class="col-4">
+                                                {{signUp_form.first_name|as_crispy_field}}
+                                            </div>
+                                            <div class="col-4">
+                                                {{signUp_form.last_name|as_crispy_field}}
+                                            </div>
+                                        </div>
+                                        <br>
+                                    
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                {{signUp_form.email|as_crispy_field}}
+                                            </div>
+                                            <div class="col-4">
+                                                {{signUp_form.password1|as_crispy_field}}
+                                            </div>
+                                            <div class="col-4">
+                                                {{signUp_form.password2|as_crispy_field}}
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <button type="submit" class="primary-btn" value="Signup">Sign_Up</button>
+                                        <!-- <input type="submit" value="Sign_up"> -->
+                                        
+                                    </form>
+                                    <p>Allready Registered then clicked here for login</p>
+                                    <a  href="{% url 'authorization:login_page' %}"><button type="button" class="primary-btn">
+                                         Login
+                                    </button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+       
+          
+        
+
+
+ 
+        <script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+            integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+            crossorigin="anonymous"></script>
+        <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+        <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+        <script src="{% static 'js/jquery.sticky.js' %}"></script>
+        <script src="{% static 'js/nouislider.min.js' %}"></script>
+        <script src="{% static 'js/countdown.js' %}"></script>
+        <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+    </body>
+</html>
